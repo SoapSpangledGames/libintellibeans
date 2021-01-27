@@ -42,7 +42,7 @@ public class ParseJFD7Header
 		
 		if (nTemp != -1)
 			{
-			m_header.m_stIdentifier = m_stData.substring(m_nOffset, nTemp);
+			m_header.m_stIdentifier = m_stData.substring(m_nOffset, nTemp).trim();
 			
 			m_nOffset = nTemp + 1;
 			}
@@ -58,7 +58,7 @@ public class ParseJFD7Header
 		
 		if (nTemp != -1)
 			{
-			m_header.m_stProgram = m_stData.substring(m_nOffset, nTemp);
+			m_header.m_stProgram = m_stData.substring(m_nOffset, nTemp).trim();
 			
 			m_nOffset = nTemp;
 			}
@@ -76,7 +76,7 @@ public class ParseJFD7Header
 			{
 			int nEnd = m_stData.indexOf("\"", nStart + 1);
 		
-			m_header.m_stProgramVersion = m_stData.substring(nStart + 1, nEnd);
+			m_header.m_stProgramVersion = m_stData.substring(nStart + 1, nEnd).trim();
 			
 			m_nOffset = nEnd + 1;
 			}
@@ -92,7 +92,7 @@ public class ParseJFD7Header
 		
 		if (nTemp != -1)
 			{
-			m_header.m_stLanguage = m_stData.substring(m_nOffset, nTemp);
+			m_header.m_stLanguage = m_stData.substring(m_nOffset, nTemp).trim();
 			
 			m_nOffset = nTemp;
 			}
@@ -110,7 +110,7 @@ public class ParseJFD7Header
 			{
 			int nEnd = m_stData.indexOf("\"", nStart + 1);
 		
-			m_header.m_stLanguageVersion = m_stData.substring(nStart + 1, nEnd);
+			m_header.m_stLanguageVersion = m_stData.substring(nStart + 1, nEnd).trim();
 			
 			m_nOffset = nEnd + 1;
 			}
