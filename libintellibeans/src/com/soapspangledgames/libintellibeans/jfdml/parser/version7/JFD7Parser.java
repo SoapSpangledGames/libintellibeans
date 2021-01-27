@@ -8,7 +8,6 @@
 package com.soapspangledgames.libintellibeans.jfdml.parser.version7;
 
 import com.soapspangledgames.libintellibeans.jfdml.exceptions.JFDMParseError;
-import com.soapspangledgames.libintellibeans.jfdml.metadata.JFDMHeader;
 import com.soapspangledgames.libintellibeans.jfdml.parser.IJFDMParser;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -28,7 +27,7 @@ public class JFD7Parser implements IJFDMParser
 	
 	private int m_nOffset;
 	
-	private ParseJFD7Header m_parseHeader;
+	private final ParseJFD7Header m_parseHeader;
 	
 	/**
 	 * 
