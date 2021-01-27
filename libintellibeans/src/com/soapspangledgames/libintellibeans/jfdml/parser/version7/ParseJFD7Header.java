@@ -5,7 +5,9 @@
  * No portion of this software may be copied, distributed, or modified without
  * the express written permission of the copyright holder.
  */
-package com.soapspangledgames.libintellibeans.jfdml.parser;
+package com.soapspangledgames.libintellibeans.jfdml.parser.version7;
+
+import com.soapspangledgames.libintellibeans.jfdml.parser.*;
 
 /**
  *

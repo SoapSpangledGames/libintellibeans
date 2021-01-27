@@ -5,10 +5,11 @@
  * No portion of this software may be copied, distributed, or modified without
  * the express written permission of the copyright holder.
  */
-package com.soapspangledgames.libintellibeans.jfdml.parser;
+package com.soapspangledgames.libintellibeans.jfdml.parser.version7;
 
 import com.soapspangledgames.libintellibeans.jfdml.exceptions.JFDMParseError;
 import com.soapspangledgames.libintellibeans.jfdml.metadata.JFDMHeader;
+import com.soapspangledgames.libintellibeans.jfdml.parser.IJFDMParser;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
