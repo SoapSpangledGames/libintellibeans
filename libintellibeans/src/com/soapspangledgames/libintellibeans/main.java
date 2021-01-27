@@ -9,7 +9,7 @@ package com.soapspangledgames.libintellibeans;
 
 /**
  *
- * @author personal
+ * @author Soap Spangled Games
  */
 public class main
 	{
