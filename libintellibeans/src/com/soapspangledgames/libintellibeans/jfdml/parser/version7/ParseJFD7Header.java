@@ -9,7 +9,6 @@ package com.soapspangledgames.libintellibeans.jfdml.parser.version7;
 
 import com.soapspangledgames.libintellibeans.jfdml.exceptions.JFDMParseError;
 import com.soapspangledgames.libintellibeans.jfdml.metadata.JFDMHeader;
-import com.soapspangledgames.libintellibeans.jfdml.parser.*;
 
 /**
  *
@@ -31,6 +30,7 @@ public class ParseJFD7Header
 	public void parse() throws JFDMParseError
 		{
 		parseIdentifier();
+		parseProgramName();
 		}
 	
 	private void parseIdentifier() throws JFDMParseError
