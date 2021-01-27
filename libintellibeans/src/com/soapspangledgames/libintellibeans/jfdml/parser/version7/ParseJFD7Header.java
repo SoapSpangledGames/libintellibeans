@@ -51,6 +51,17 @@ public class ParseJFD7Header
 	
 	private void parseProgramName() throws JFDMParseError
 		{
+		int nTemp = m_stData.indexOf(": ", m_nOffset);
 		
+		if (nTemp != -1)
+			{
+			m_header.m_stProgram = m_stData.substring(m_nOffset, nTemp);
+			
+			m_nOffset += nTemp + 3;
+			}
+		else
+			{
+			throw new JFDMParseError("Could not find the JFDM program name at offset " + m_nOffset);
+			}
 		}
 	}
