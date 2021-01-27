@@ -34,6 +34,8 @@ public class ParseJFD7Header
 		parseProgramVersion();
 		parseLanguageName();
 		parseLanguageVersion();
+		parseEncodingName();
+		parseEncodingType();
 		}
 	
 	private void parseIdentifier() throws JFDMParseError
@@ -117,6 +119,38 @@ public class ParseJFD7Header
 		else
 			{
 			throw new JFDMParseError("Could not find the JFDM language version at offset " + m_nOffset);
+			}
+		}
+	
+	private void parseEncodingName() throws JFDMParseError
+		{
+		int nTemp = m_stData.indexOf(": ", m_nOffset);
+		
+		if (nTemp != -1)
+			{
+			m_nOffset = nTemp;
+			}
+		else
+			{
+			throw new JFDMParseError("Could not find the JFDM encoding tag at offset " + m_nOffset);
+			}
+		}
+		
+	private void parseEncodingType() throws JFDMParseError
+		{
+		int nStart = m_stData.indexOf("\"", m_nOffset);
+		
+		if (nStart != -1)
+			{
+			int nEnd = m_stData.indexOf("\"", nStart + 1);
+		
+			m_header.m_stEncoding = m_stData.substring(nStart + 1, nEnd).trim();
+			
+			m_nOffset = nEnd + 1;
+			}
+		else
+			{
+			throw new JFDMParseError("Could not find the JFDM encoding type at offset " + m_nOffset);
 			}
 		}
 	}
