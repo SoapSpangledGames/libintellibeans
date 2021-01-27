@@ -32,6 +32,8 @@ public class ParseJFD7Header
 		parseIdentifier();
 		parseProgramName();
 		parseProgramVersion();
+		parseLanguageName();
+		parseLanguageVersion();
 		}
 	
 	private void parseIdentifier() throws JFDMParseError
@@ -65,7 +67,7 @@ public class ParseJFD7Header
 			throw new JFDMParseError("Could not find the JFDM program name at offset " + m_nOffset);
 			}
 		}
-	
+
 	private void parseProgramVersion() throws JFDMParseError
 		{
 		int nStart = m_stData.indexOf("\"", m_nOffset);
@@ -76,11 +78,45 @@ public class ParseJFD7Header
 		
 			m_header.m_stProgramVersion = m_stData.substring(nStart + 1, nEnd);
 			
-			m_nOffset += nEnd + 1;
+			m_nOffset = nEnd + 1;
 			}
 		else
 			{
-			throw new JFDMParseError("Could not find the JFDM program name at offset " + m_nOffset);
+			throw new JFDMParseError("Could not find the JFDM program version at offset " + m_nOffset);
+			}
+		}
+	
+	private void parseLanguageName() throws JFDMParseError
+		{
+		int nTemp = m_stData.indexOf(": ", m_nOffset);
+		
+		if (nTemp != -1)
+			{
+			m_header.m_stLanguage = m_stData.substring(m_nOffset, nTemp);
+			
+			m_nOffset = nTemp;
+			}
+		else
+			{
+			throw new JFDMParseError("Could not find the JFDM language name at offset " + m_nOffset);
+			}
+		}
+		
+	private void parseLanguageVersion() throws JFDMParseError
+		{
+		int nStart = m_stData.indexOf("\"", m_nOffset);
+		
+		if (nStart != -1)
+			{
+			int nEnd = m_stData.indexOf("\"", nStart + 1);
+		
+			m_header.m_stLanguageVersion = m_stData.substring(nStart + 1, nEnd);
+			
+			m_nOffset = nEnd + 1;
+			}
+		else
+			{
+			throw new JFDMParseError("Could not find the JFDM language version at offset " + m_nOffset);
 			}
 		}
 	}
