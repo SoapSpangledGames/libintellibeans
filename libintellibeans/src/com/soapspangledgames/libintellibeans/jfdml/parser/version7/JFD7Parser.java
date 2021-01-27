@@ -29,6 +29,8 @@ public class JFD7Parser implements IJFDMParser
 	
 	private final ParseJFD7Header m_parseHeader;
 	
+	private final ParseJFD7Body m_parseBody;
+	
 	/**
 	 * 
 	 * @param stData The complete markup file.
@@ -37,6 +39,7 @@ public class JFD7Parser implements IJFDMParser
 		{
 		m_stData = stData;
 		m_parseHeader = new ParseJFD7Header(stData);
+		m_parseBody = new ParseJFD7Body(stData);
 		}
 	
 	@Override

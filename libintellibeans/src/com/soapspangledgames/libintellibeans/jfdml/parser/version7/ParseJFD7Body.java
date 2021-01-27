@@ -22,10 +22,9 @@ public class ParseJFD7Body
 	
 	private int m_nOffset;
 	
-	public ParseJFD7Body(String stData, int nOffset)
+	public ParseJFD7Body(String stData)
 		{
 		m_stData = stData;
-		m_nOffset = nOffset;
 		}
 	
 	public JFDMBody getBody()
@@ -33,7 +32,7 @@ public class ParseJFD7Body
 		return m_body;
 		}
 	
-	public void parse() throws JFDMParseError
+	public void parse(int nOffset) throws JFDMParseError
 		{
 		}
 	}
