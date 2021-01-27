@@ -31,6 +31,7 @@ public class ParseJFD7Header
 		{
 		parseIdentifier();
 		parseProgramName();
+		parseProgramVersion();
 		}
 	
 	private void parseIdentifier() throws JFDMParseError
@@ -41,7 +42,7 @@ public class ParseJFD7Header
 			{
 			m_header.m_stIdentifier = m_stData.substring(m_nOffset, nTemp);
 			
-			m_nOffset += nTemp + 1;
+			m_nOffset = nTemp + 1;
 			}
 		else
 			{
@@ -57,7 +58,25 @@ public class ParseJFD7Header
 			{
 			m_header.m_stProgram = m_stData.substring(m_nOffset, nTemp);
 			
-			m_nOffset += nTemp + 3;
+			m_nOffset = nTemp;
+			}
+		else
+			{
+			throw new JFDMParseError("Could not find the JFDM program name at offset " + m_nOffset);
+			}
+		}
+	
+	private void parseProgramVersion() throws JFDMParseError
+		{
+		int nStart = m_stData.indexOf("\"", m_nOffset);
+		
+		if (nStart != -1)
+			{
+			int nEnd = m_stData.indexOf("\"", nStart + 1);
+		
+			m_header.m_stProgramVersion = m_stData.substring(nStart + 1, nEnd);
+			
+			m_nOffset += nEnd + 1;
 			}
 		else
 			{
