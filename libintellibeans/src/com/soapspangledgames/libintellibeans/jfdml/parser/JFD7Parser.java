@@ -21,7 +21,7 @@ import java.util.List;
  * 
  * @author Soap Spangled Games
  */
-public class JFD7Parser
+public class JFD7Parser implements IJFDMParser
 	{
 	private JFDMHeader m_header = new JFDMHeader();
 	
@@ -38,6 +38,7 @@ public class JFD7Parser
 		m_stData = stData;
 		}
 	
+	@Override
 	public void parse() throws JFDMParseError
 		{
 		m_nOffset = 0;
@@ -47,6 +48,7 @@ public class JFD7Parser
 	private void parseHeader() throws JFDMParseError
 		{
 		parseIdentifier();
+		parseProgramName();
 		}
 	
 	private void parseIdentifier() throws JFDMParseError
@@ -63,6 +65,11 @@ public class JFD7Parser
 			{
 			throw new JFDMParseError("Could not find the JFDM identifier at offset " + m_nOffset);
 			}
+		}
+	
+	private void parseProgramName()
+		{
+		
 		}
 	
 	public static void main(String[] args) throws IOException, JFDMParseError
