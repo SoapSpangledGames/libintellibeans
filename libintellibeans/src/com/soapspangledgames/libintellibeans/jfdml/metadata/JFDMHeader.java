@@ -19,7 +19,9 @@ public class JFDMHeader
 	
 	public String m_stProgramVersion;
 	
-	public String m_stJavaVersion;
+	public String m_stLanguage;
+	
+	public String m_stLanguageVersion;
 	
 	public String m_stEncoding;
 	
