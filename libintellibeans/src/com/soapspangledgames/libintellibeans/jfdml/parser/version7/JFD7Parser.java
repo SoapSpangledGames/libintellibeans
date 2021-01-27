@@ -75,7 +75,7 @@ public class JFD7Parser implements IJFDMParser
 	
 	public static void main(String[] args) throws IOException, JFDMParseError
 		{
-		List<String> lstLines = Files.readAllLines(Paths.get("/home/personal/temp/test.jfdm"));
+		List<String> lstLines = Files.readAllLines(Paths.get("test.jfdm"));
 		JFD7Parser parser = new JFD7Parser(lstLines.toString().replace("[", "").replace("]", ""));
 		
 		parser.parse();
