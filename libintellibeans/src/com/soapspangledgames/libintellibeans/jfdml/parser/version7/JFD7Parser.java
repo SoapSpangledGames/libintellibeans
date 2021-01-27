@@ -47,11 +47,12 @@ public class JFD7Parser implements IJFDMParser
 		{
 		m_parseHeader.parse();
 		m_nOffset = m_parseHeader.getOffset();
+		m_parseBody.parse(m_nOffset);
 		}
 	
 	public static void main(String[] args) throws IOException, JFDMParseError
 		{
-		List<String> lstLines = Files.readAllLines(Paths.get("test.jfdm"));
+		List<String> lstLines = Files.readAllLines(Paths.get("/home/personal/temp/test.jfdm"));
 		JFD7Parser parser = new JFD7Parser(lstLines.toString().replace("[", "").replace("]", ""));
 		
 		parser.parse();

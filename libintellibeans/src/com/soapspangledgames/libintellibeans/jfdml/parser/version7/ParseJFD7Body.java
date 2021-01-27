@@ -7,6 +7,7 @@
  */
 package com.soapspangledgames.libintellibeans.jfdml.parser.version7;
 
+import com.soapspangledgames.libintellibeans.jfdml.Util.StringUtil;
 import com.soapspangledgames.libintellibeans.jfdml.exceptions.JFDMParseError;
 import com.soapspangledgames.libintellibeans.jfdml.metadata.JFDMBody;
 
@@ -34,5 +35,14 @@ public class ParseJFD7Body
 	
 	public void parse(int nOffset) throws JFDMParseError
 		{
+		int nTemp;
+		
+		m_nOffset = nOffset;
+		m_nOffset = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
+		nTemp = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
+		if (nTemp > m_nOffset)
+			{
+			
+			}
 		}
 	}
