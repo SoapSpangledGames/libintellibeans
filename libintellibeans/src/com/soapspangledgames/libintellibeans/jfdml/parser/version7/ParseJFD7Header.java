@@ -16,7 +16,7 @@ import com.soapspangledgames.libintellibeans.jfdml.metadata.JFDMHeader;
  */
 public class ParseJFD7Header
 	{
-	private JFDMHeader m_header = new JFDMHeader();
+	private final JFDMHeader m_header = new JFDMHeader();
 	
 	private final String m_stData;
 	
@@ -25,6 +25,11 @@ public class ParseJFD7Header
 	public ParseJFD7Header(String stLine)
 		{
 		m_stData = stLine;
+		}
+	
+	public JFDMHeader getHeader()
+		{
+		return m_header;
 		}
 	
 	public void parse() throws JFDMParseError
