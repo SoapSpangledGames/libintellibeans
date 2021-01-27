@@ -22,9 +22,9 @@ public class ParseJFD7Header
 	
 	private int m_nOffset = 0;
 	
-	public ParseJFD7Header(String stLine)
+	public ParseJFD7Header(String stData)
 		{
-		m_stData = stLine;
+		m_stData = stData;
 		}
 	
 	public JFDMHeader getHeader()
