@@ -32,6 +32,11 @@ public class ParseJFD7Header
 		return m_header;
 		}
 	
+	public int getOffset()
+		{
+		return m_nOffset;
+		}
+	
 	public void parse() throws JFDMParseError
 		{
 		parseIdentifier();
