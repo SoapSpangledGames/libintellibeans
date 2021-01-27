@@ -42,8 +42,8 @@ public class JFD7Parser implements IJFDMParser
 	@Override
 	public void parse() throws JFDMParseError
 		{
-		m_nOffset = 0;
 		m_parseHeader.parse();
+		m_nOffset = m_parseHeader.getOffset();
 		}
 	
 	public static void main(String[] args) throws IOException, JFDMParseError
