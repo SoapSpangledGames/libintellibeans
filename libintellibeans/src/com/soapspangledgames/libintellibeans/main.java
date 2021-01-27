@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 by Anthony H. O'Bryan.
+ * Copyright 2020 by Soap Spangled Games.
  * All Rights Reserved.
  *
  * No portion of this software may be copied, distributed, or modified without
