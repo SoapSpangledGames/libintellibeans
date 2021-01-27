@@ -18,6 +18,10 @@ public class JFD7Parser
 	{
 	private final String m_stData;
 	
+	/**
+	 * 
+	 * @param stData The complete markup file.
+	 */
 	public JFD7Parser(String stData)
 		{
 		m_stData = stData;
