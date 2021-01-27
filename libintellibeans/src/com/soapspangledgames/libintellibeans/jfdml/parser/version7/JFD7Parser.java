@@ -24,11 +24,11 @@ import java.util.List;
  */
 public class JFD7Parser implements IJFDMParser
 	{
-	private JFDMHeader m_header = new JFDMHeader();
-	
 	private final String m_stData;
 	
 	private int m_nOffset;
+	
+	private ParseJFD7Header m_parseHeader;
 	
 	/**
 	 * 
@@ -37,40 +37,14 @@ public class JFD7Parser implements IJFDMParser
 	public JFD7Parser(String stData)
 		{
 		m_stData = stData;
+		m_parseHeader = new ParseJFD7Header(stData);
 		}
 	
 	@Override
 	public void parse() throws JFDMParseError
 		{
 		m_nOffset = 0;
-		parseHeader();
-		}
-	
-	private void parseHeader() throws JFDMParseError
-		{
-		parseIdentifier();
-		parseProgramName();
-		}
-	
-	private void parseIdentifier() throws JFDMParseError
-		{
-		int nTemp = m_stData.indexOf(" ", m_nOffset);
-		
-		if (nTemp != -1)
-			{
-			m_header.m_stIdentifier = m_stData.substring(m_nOffset, nTemp);
-			
-			m_nOffset += nTemp + 1;
-			}
-		else
-			{
-			throw new JFDMParseError("Could not find the JFDM identifier at offset " + m_nOffset);
-			}
-		}
-	
-	private void parseProgramName()
-		{
-		
+		m_parseHeader.parse();
 		}
 	
 	public static void main(String[] args) throws IOException, JFDMParseError
