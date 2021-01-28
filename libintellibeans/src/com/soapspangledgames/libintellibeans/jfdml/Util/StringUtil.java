@@ -24,9 +24,9 @@ public class StringUtil
 		
 		if (stData != null && nOffset >= 0)
 			{
-			if (StringUtil.isWhiteSpace(stData.charAt(nOffset)))
+			if (StringUtil.isWhiteSpace(stData.charAt(ret)))
 				{
-				++nOffset;
+				++ret;
 				}
 			}
 		return ret;
@@ -38,9 +38,9 @@ public class StringUtil
 		
 		if (stData != null && nOffset >= 0)
 			{
-			if (!StringUtil.isWhiteSpace(stData.charAt(nOffset)))
+			if (!StringUtil.isWhiteSpace(stData.charAt(ret)))
 				{
-				++nOffset;
+				++ret;
 				}
 			}
 		return ret;
