@@ -13,7 +13,7 @@ package com.soapspangledgames.libintellibeans.jfdml.metadata;
  */
 public class JFDMFormModel
 	{
-	public String m_stContentType;
+	public JFDMContentType m_contentType;
 	
 	public JFDMFormModel()
 		{
