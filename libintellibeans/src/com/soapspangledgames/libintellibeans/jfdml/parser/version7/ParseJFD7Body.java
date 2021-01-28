@@ -37,12 +37,28 @@ public class ParseJFD7Body
 		{
 		int nTemp;
 		
-		m_nOffset = nOffset;
-		m_nOffset = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
-		nTemp = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
-		if (nTemp > m_nOffset)
+		m_nOffset = StringUtil.skipWhiteSpace(m_stData, nOffset);
+		nTemp = StringUtil.findNextWhiteSpace(m_stData, m_nOffset);
+		while (nTemp > m_nOffset)
 			{
-			
+			if ( (nTemp = StringUtil.findNextWhiteSpace(m_stData, m_nOffset)) != -1)
+				{
+				String stCommand = m_stData.substring(m_nOffset, nTemp).toLowerCase();
+				
+				switch (stCommand)
+					{
+					case "new":
+						m_nOffset = nTemp;
+						processNewCommand();
+						break;
+					}
+				}
+			m_nOffset = nTemp;
 			}
+		}
+	
+	public void processNewCommand()
+		{
+		
 		}
 	}
