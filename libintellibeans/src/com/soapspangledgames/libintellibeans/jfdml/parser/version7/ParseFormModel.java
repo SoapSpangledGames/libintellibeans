@@ -53,7 +53,7 @@ public class ParseFormModel
 	/**
 	 * Parses the content of the FormModel block.
 	 */
-	private void parseContent()
+	private void parseContent() throws JFDMParseError
 		{
 		int nTemp;
 		
@@ -67,10 +67,18 @@ public class ParseFormModel
 				{
 				case "}":
 					break;
-				case "contenttype":
-					
+				case "contenttype:":
+					m_nOffset = nTemp;
+					parseContentType(m_nOffset);
 					break;
 				}
 			}
+		}
+	
+	private void parseContentType(int nOffset) throws JFDMParseError
+		{
+		ParseContentType parse = new ParseContentType(m_stData);
+		
+		parse.parse(nOffset);
 		}
 	}

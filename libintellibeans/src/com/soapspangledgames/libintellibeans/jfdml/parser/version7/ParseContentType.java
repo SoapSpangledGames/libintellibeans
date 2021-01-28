@@ -7,6 +7,8 @@
  */
 package com.soapspangledgames.libintellibeans.jfdml.parser.version7;
 
+import com.soapspangledgames.libintellibeans.jfdml.Util.StringUtil;
+import com.soapspangledgames.libintellibeans.jfdml.exceptions.JFDMParseError;
 import com.soapspangledgames.libintellibeans.jfdml.metadata.JFDMContentType;
 
 /**
@@ -24,5 +26,17 @@ public class ParseContentType
 	public ParseContentType(String stData)
 		{
 		m_stData = stData;
+		}
+
+	public void parse(int nOffset) throws JFDMParseError
+		{
+		int nTemp;
+
+		m_nOffset = StringUtil.skipWhiteSpace(m_stData, nOffset);
+		nTemp = StringUtil.findNextWhiteSpace(m_stData, m_nOffset);
+		if (nTemp > m_nOffset)
+			{
+			m_model.m_stRawType = m_stData.substring(m_nOffset, nTemp).toLowerCase();
+			}
 		}
 	}
