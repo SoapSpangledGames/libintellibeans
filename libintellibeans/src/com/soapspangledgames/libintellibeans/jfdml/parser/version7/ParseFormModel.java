@@ -71,11 +71,21 @@ public class ParseFormModel
 					m_nOffset = nTemp;
 					parseContentType(m_nOffset);
 					break;
+				case "root:":
+					m_nOffset = nTemp;
+					parseRoot(m_nOffset);
 				}
 			}
 		}
 	
 	private void parseContentType(int nOffset) throws JFDMParseError
+		{
+		ParseContentType parse = new ParseContentType(m_stData);
+		
+		parse.parse(nOffset);
+		}
+	
+	private void parseRoot(int nOffset) throws JFDMParseError
 		{
 		ParseContentType parse = new ParseContentType(m_stData);
 		
