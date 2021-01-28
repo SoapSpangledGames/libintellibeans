@@ -7,6 +7,7 @@
  */
 package com.soapspangledgames.libintellibeans.jfdml.parser.version7;
 
+import com.soapspangledgames.libintellibeans.jfdml.Util.ListUtil;
 import com.soapspangledgames.libintellibeans.jfdml.exceptions.JFDMParseError;
 import com.soapspangledgames.libintellibeans.jfdml.parser.IJFDMParser;
 import java.io.IOException;
@@ -53,7 +54,7 @@ public class JFD7Parser implements IJFDMParser
 	public static void main(String[] args) throws IOException, JFDMParseError
 		{
 		List<String> lstLines = Files.readAllLines(Paths.get("/home/personal/temp/test.jfdm"));
-		JFD7Parser parser = new JFD7Parser(lstLines.toString().replace("[", "").replace("]", ""));
+		JFD7Parser parser = new JFD7Parser(ListUtil.toString(lstLines, "\n"));
 		
 		parser.parse();
 		}
