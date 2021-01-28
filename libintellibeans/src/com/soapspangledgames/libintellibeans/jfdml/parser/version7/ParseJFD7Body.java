@@ -55,7 +55,7 @@ public class ParseJFD7Body
 			}
 		}
 
-	private void processNewCommand()
+	private void processNewCommand() throws JFDMParseError
 		{
 		int nTemp;
 
@@ -74,8 +74,10 @@ public class ParseJFD7Body
 			}
 		}
 	
-	private void processFormModel()
+	private void processFormModel() throws JFDMParseError
 		{
+		ParseFormModel parse = new ParseFormModel(m_stData);
 		
+		parse.parse(m_nOffset);
 		}
 	}
