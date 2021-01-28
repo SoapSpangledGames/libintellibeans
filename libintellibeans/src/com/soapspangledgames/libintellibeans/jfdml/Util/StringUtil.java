@@ -15,37 +15,41 @@ public class StringUtil
 	{
 	public StringUtil()
 		{
-		
+
 		}
-	
+
 	static public int skipWhiteSpace(String stData, int nOffset)
 		{
 		int ret = nOffset;
-		
+
 		if (stData != null && nOffset >= 0)
 			{
-			if (StringUtil.isWhiteSpace(stData.charAt(ret)))
+			int nLength = stData.length();
+
+			while (nOffset < nLength && StringUtil.isWhiteSpace(stData.charAt(ret)))
 				{
 				++ret;
 				}
 			}
 		return ret;
 		}
-	
+
 	static public int findNextWhiteSpace(String stData, int nOffset)
 		{
 		int ret = nOffset;
-		
+
 		if (stData != null && nOffset >= 0)
 			{
-			if (!StringUtil.isWhiteSpace(stData.charAt(ret)))
+			int nLength = stData.length();
+
+			while (nOffset < nLength && !StringUtil.isWhiteSpace(stData.charAt(ret)))
 				{
 				++ret;
 				}
 			}
 		return ret;
 		}
-	
+
 	static public boolean isWhiteSpace(char c)
 		{
 		return c < '!' || c > '~';
