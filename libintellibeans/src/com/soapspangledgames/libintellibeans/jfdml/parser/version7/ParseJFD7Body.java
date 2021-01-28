@@ -68,16 +68,16 @@ public class ParseJFD7Body
 			switch (stType)
 				{
 				case "formmodel":
-					processFormModel();
+					processFormModel(nTemp);
 					break;
 				}
 			}
 		}
 	
-	private void processFormModel() throws JFDMParseError
+	private void processFormModel(int nTemp) throws JFDMParseError
 		{
 		ParseFormModel parse = new ParseFormModel(m_stData);
 		
-		parse.parse(m_nOffset);
+		parse.parse(nTemp);
 		}
 	}
