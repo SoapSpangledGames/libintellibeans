@@ -27,6 +27,11 @@ public class ParseContentType
 		{
 		m_stData = stData;
 		}
+	
+	public int getOffset()
+		{
+		return m_nOffset;
+		}
 
 	public void parse(int nOffset) throws JFDMParseError
 		{
@@ -37,6 +42,7 @@ public class ParseContentType
 		if (nTemp > m_nOffset)
 			{
 			m_model.m_stRawType = m_stData.substring(m_nOffset, nTemp).toLowerCase();
+			m_nOffset = nTemp;
 			}
 		}
 	}
