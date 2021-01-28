@@ -87,7 +87,7 @@ public class ParseFormModel
 	
 	private void parseRoot(int nOffset) throws JFDMParseError
 		{
-		ParseContentType parse = new ParseContentType(m_stData);
+		ParseFormModelRoot parse = new ParseFormModelRoot(m_stData);
 		
 		parse.parse(nOffset);
 		}
