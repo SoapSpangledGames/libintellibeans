@@ -75,6 +75,7 @@ public class ParseFormModel
 				case "root:":
 					parseRoot(nTemp);
 					nTemp = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
+					break;
 				}
 			}
 		}
