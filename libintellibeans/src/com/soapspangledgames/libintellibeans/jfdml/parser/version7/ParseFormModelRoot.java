@@ -38,8 +38,45 @@ public class ParseFormModelRoot
 
 		m_nOffset = StringUtil.skipWhiteSpace(m_stData, nOffset);
 		nTemp = StringUtil.findNextWhiteSpace(m_stData, m_nOffset);
-		if (nTemp > m_nOffset)
+		while (nTemp > m_nOffset)
 			{
+			String stCommand = m_stData.substring(m_nOffset, nTemp).toLowerCase();
+
+			switch (stCommand)
+				{
+				case "new":
+					m_nOffset = nTemp;
+					processNewCommand();
+					break;
+				}
+			m_nOffset = nTemp;
+			nTemp = StringUtil.findNextWhiteSpace(m_stData, m_nOffset);
 			}
+		}
+
+	private void processNewCommand() throws JFDMParseError
+		{
+		int nTemp;
+
+		m_nOffset = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
+		nTemp = StringUtil.findNextWhiteSpace(m_stData, m_nOffset);
+		while (nTemp > m_nOffset)
+			{
+			String stType = m_stData.substring(m_nOffset, nTemp).toLowerCase();
+			
+			switch (stType)
+				{
+				case "formroot":
+					processFormRoot(nTemp);
+					break;
+				}
+			}
+		}
+	
+	private void processFormRoot(int nOffset) throws JFDMParseError
+		{
+		ParseFormRoot parse = new ParseFormRoot(m_stData);
+		
+		parse.parse(nOffset);
 		}
 	}
