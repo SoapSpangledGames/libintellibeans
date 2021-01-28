@@ -68,12 +68,13 @@ public class ParseFormModel
 				case "}":
 					break;
 				case "contenttype:":
-					m_nOffset = nTemp;
-					parseContentType(m_nOffset);
+					parseContentType(nTemp);
+					m_nOffset = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
+					nTemp = StringUtil.findNextWhiteSpace(m_stData, m_nOffset);
 					break;
 				case "root:":
-					m_nOffset = nTemp;
-					parseRoot(m_nOffset);
+					parseRoot(nTemp);
+					nTemp = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
 				}
 			}
 		}
