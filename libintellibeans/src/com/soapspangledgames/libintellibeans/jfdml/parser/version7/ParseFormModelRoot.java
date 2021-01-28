@@ -26,6 +26,11 @@ public class ParseFormModelRoot
 		{
 		m_stData = stData;
 		}
+	
+	public int getOffset()
+		{
+		return m_nOffset;
+		}
 
 	public void parse(int nOffset) throws JFDMParseError
 		{
