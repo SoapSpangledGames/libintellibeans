@@ -34,10 +34,11 @@ public class ParseFormRoot
 		if (nTemp > m_nOffset)
 			{
 			String stTag = m_stData.substring(m_nOffset, nTemp).toLowerCase();
-			
+
 			if (stTag.equals("{"))
 				{
-				parseRoot(nTemp);
+				m_nOffset = nTemp;
+				parseContent();
 				}
 			else
 				{
@@ -45,8 +46,27 @@ public class ParseFormRoot
 				}
 			}
 		}
-	
-	private void parseRoot(int nOffset) throws JFDMParseError
+
+	/**
+	 * Parses the content of the FormModel block.
+	 */
+	private void parseContent() throws JFDMParseError
 		{
+		int nTemp;
+
+		m_nOffset = StringUtil.skipWhiteSpace(m_stData, m_nOffset);
+		nTemp = StringUtil.findNextWhiteSpace(m_stData, m_nOffset);
+		while (nTemp > m_nOffset)
+			{
+			String stTag = m_stData.substring(m_nOffset, nTemp).toLowerCase().toLowerCase();
+
+			switch (stTag)
+				{
+				case "}":
+					break;
+				case "add(":
+					break;
+				}
+			}
 		}
 	}
